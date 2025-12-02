@@ -14,7 +14,7 @@ internal static class GeneratedMenuMarkerSync
     private static void OnHierarchyChanged()
     {
         // Find all marker components in the scene
-        var markers = Object.FindObjectsOfType<VRCExpressionMenuVisualizer.ExprMenuVisualizerGeneratedGuid>();
+        var markers = Object.FindObjectsOfType<VRCExpressionMenuOrganizer.ExprMenuVisualizerGeneratedGuid>();
         if (markers == null || markers.Length == 0) return;
 
         foreach (var m in markers)
@@ -39,7 +39,7 @@ internal static class GeneratedMenuMarkerSync
         // reflects the current hierarchy after moves (covers drag/drop into root etc.)
         try
         {
-            var metas = Object.FindObjectsOfType<VRCExpressionMenuVisualizer.ExprMenuVisualizerGeneratedMetadata>();
+            var metas = Object.FindObjectsOfType<VRCExpressionMenuOrganizer.ExprMenuVisualizerGeneratedMetadata>();
             if (metas != null && metas.Length > 0)
             {
                 foreach (var meta in metas)

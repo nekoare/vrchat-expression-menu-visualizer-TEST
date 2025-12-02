@@ -1120,7 +1120,7 @@ namespace VRCExpressionMenuOrganizer
                     RefreshMenuTree();
                 }
                 
-                Debug.LogError($"VRCExpressionMenuVisualizer Error: {e}");
+                Debug.LogError($"VRCExpressionMenuOrganizer Error: {e}");
             }
             
             EditorGUILayout.EndScrollView();
@@ -3843,7 +3843,7 @@ namespace VRCExpressionMenuOrganizer
                     editingSourceComponent.gameObject.name = newName;
 
                     // ExprMenuVisualizerGeneratedMetadataのfullPathも更新
-                    var meta = editingSourceComponent.gameObject.GetComponent<VRCExpressionMenuVisualizer.ExprMenuVisualizerGeneratedMetadata>();
+                    var meta = editingSourceComponent.gameObject.GetComponent<VRCExpressionMenuOrganizer.ExprMenuVisualizerGeneratedMetadata>();
                     if (meta != null)
                     {
                         // 親のfullPathを取得
@@ -3851,7 +3851,7 @@ namespace VRCExpressionMenuOrganizer
                         var parent = editingSourceComponent.transform.parent;
                         if (parent != null)
                         {
-                            var parentMeta = parent.GetComponent<VRCExpressionMenuVisualizer.ExprMenuVisualizerGeneratedMetadata>();
+                            var parentMeta = parent.GetComponent<VRCExpressionMenuOrganizer.ExprMenuVisualizerGeneratedMetadata>();
                             if (parentMeta != null && !string.IsNullOrEmpty(parentMeta.fullPath))
                                 parentPath = parentMeta.fullPath;
                         }
@@ -5318,7 +5318,7 @@ namespace VRCExpressionMenuOrganizer
             // Attach GUID-based generated marker for robust identification across sessions
             try
             {
-                var guidComp = EnsureAddComponent(newGO, typeof(VRCExpressionMenuVisualizer.ExprMenuVisualizerGeneratedGuid)) as Component;
+                var guidComp = EnsureAddComponent(newGO, typeof(VRCExpressionMenuOrganizer.ExprMenuVisualizerGeneratedGuid)) as Component;
                 if (guidComp != null)
                 {
                     var guidField = guidComp.GetType().GetField("generatedGuid");
@@ -9324,7 +9324,7 @@ namespace VRCExpressionMenuOrganizer
             if (unclassified.Count > 0)
             {
                 var msg = new StringBuilder();
-                msg.AppendLine($"[VRCExpressionMenuVisualizer] Found {unclassified.Count} unclassified Menu Installer(s) while MenuItem root exists:");
+                msg.AppendLine($"[VRCExpressionMenuOrganizer] Found {unclassified.Count} unclassified Menu Installer(s) while MenuItem root exists:");
                 foreach (var p in unclassified)
                 {
                     msg.AppendLine($"  - {p}");
