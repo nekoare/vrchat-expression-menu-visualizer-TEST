@@ -2,9 +2,9 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ "claude/**" ]
+    branches: [ "main", "claude/**" ]
   pull_request:
-    branches: [ "claude/**" ]
+    branches: [ "main", "claude/**" ]
   workflow_dispatch:
 
 permissions:
@@ -28,17 +28,17 @@ jobs:
         
       - name: Create package ZIP files
         run: |
-          # Create visualizer-test v1.1.0 ZIP
+          # Create visualizer-test v1.0.0 ZIP from git history
+          git archive --format=zip --output=dev.nekoare.vrc-expression-menu-visualizer-test-1.0.0.zip 176ed88:Packages/dev.nekoare.vrc-expression-menu-visualizer-test
+
+          # Create visualizer-test v1.1.0 ZIP (exclude .meta files)
           cd Packages/dev.nekoare.vrc-expression-menu-visualizer-test
-          zip -r ../../dev.nekoare.vrc-expression-menu-visualizer-test-1.1.0.zip .
+          zip -r ../../dev.nekoare.vrc-expression-menu-visualizer-test-1.1.0.zip . -x "*.meta"
           cd ../..
 
-          # Create visualizer-test v1.0.0 ZIP (same as v1.1.0 for compatibility)
-          cp dev.nekoare.vrc-expression-menu-visualizer-test-1.1.0.zip dev.nekoare.vrc-expression-menu-visualizer-test-1.0.0.zip
-
-          # Create organizer-beta v1.0.0 ZIP
+          # Create organizer-beta v1.0.0 ZIP (exclude .meta files)
           cd Packages/dev.nekoare.vrc-expression-menu-organizer-beta
-          zip -r ../../dev.nekoare.vrc-expression-menu-organizer-beta-1.0.0.zip .
+          zip -r ../../dev.nekoare.vrc-expression-menu-organizer-beta-1.0.0.zip . -x "*.meta"
           cd ../..
 
       - name: Calculate ZIP hashes and update index.json

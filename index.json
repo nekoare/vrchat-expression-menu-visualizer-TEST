@@ -33,7 +33,7 @@
             "test"
           ],
           "url": "https://nekoare.github.io/vrchat-expression-menu-visualizer-TEST/dev.nekoare.vrc-expression-menu-visualizer-test-1.0.0.zip",
-          "zipSHA256": "2236e1171cbddd694185798118acf63fa750e54b939014f756e4cda498496ece"
+          "zipSHA256": "PLACEHOLDER_HASH_1_0_0"
         },
         "1.1.0": {
           "name": "dev.nekoare.vrc-expression-menu-visualizer-test",
@@ -62,7 +62,7 @@
             "stable"
           ],
           "url": "https://nekoare.github.io/vrchat-expression-menu-visualizer-TEST/dev.nekoare.vrc-expression-menu-visualizer-test-1.1.0.zip",
-          "zipSHA256": "b2a95e2b1b1da1cb426dde87c3e9c930b5cdbaee6a3e83ae08ffb53887ec77f1"
+          "zipSHA256": "PLACEHOLDER_HASH_1_1_0"
         }
       }
     },
@@ -97,7 +97,7 @@
             "beta"
           ],
           "url": "https://nekoare.github.io/vrchat-expression-menu-visualizer-TEST/dev.nekoare.vrc-expression-menu-organizer-beta-1.0.0.zip",
-          "zipSHA256": "375d79fb6e969636de0dfa37eb9e51a217fb458cd5e97a81b2eade25073f3e97"
+          "zipSHA256": "PLACEHOLDER_HASH_ORGANIZER_1_0_0"
         }
       }
     }
