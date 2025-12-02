@@ -26,18 +26,39 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         
-      - name: Create package ZIP file
+      - name: Create package ZIP files
         run: |
+          # Create visualizer-test v1.1.0 ZIP
           cd Packages/dev.nekoare.vrc-expression-menu-visualizer-test
-          zip -r ../../dev.nekoare.vrc-expression-menu-visualizer-test-1.0.0.zip .
+          zip -r ../../dev.nekoare.vrc-expression-menu-visualizer-test-1.1.0.zip .
           cd ../..
 
-      - name: Calculate ZIP hash and update index.json
+          # Create visualizer-test v1.0.0 ZIP (same as v1.1.0 for compatibility)
+          cp dev.nekoare.vrc-expression-menu-visualizer-test-1.1.0.zip dev.nekoare.vrc-expression-menu-visualizer-test-1.0.0.zip
+
+          # Create organizer-beta v1.0.0 ZIP
+          cd Packages/dev.nekoare.vrc-expression-menu-organizer-beta
+          zip -r ../../dev.nekoare.vrc-expression-menu-organizer-beta-1.0.0.zip .
+          cd ../..
+
+      - name: Calculate ZIP hashes and update index.json
         run: |
-          ZIP_HASH=$(sha256sum dev.nekoare.vrc-expression-menu-visualizer-test-1.0.0.zip | cut -d' ' -f1)
-          echo "Generated ZIP hash: $ZIP_HASH"
-          sed -i "s/PLACEHOLDER_HASH_WILL_BE_REPLACED/$ZIP_HASH/g" index.json
-          echo "Updated index.json with hash"
+          # Calculate hash for visualizer-test v1.0.0
+          HASH_1_0_0=$(sha256sum dev.nekoare.vrc-expression-menu-visualizer-test-1.0.0.zip | cut -d' ' -f1)
+          echo "Visualizer v1.0.0 hash: $HASH_1_0_0"
+          sed -i "s/PLACEHOLDER_HASH_1_0_0/$HASH_1_0_0/g" index.json
+
+          # Calculate hash for visualizer-test v1.1.0
+          HASH_1_1_0=$(sha256sum dev.nekoare.vrc-expression-menu-visualizer-test-1.1.0.zip | cut -d' ' -f1)
+          echo "Visualizer v1.1.0 hash: $HASH_1_1_0"
+          sed -i "s/PLACEHOLDER_HASH_1_1_0/$HASH_1_1_0/g" index.json
+
+          # Calculate hash for organizer-beta v1.0.0
+          HASH_ORGANIZER=$(sha256sum dev.nekoare.vrc-expression-menu-organizer-beta-1.0.0.zip | cut -d' ' -f1)
+          echo "Organizer v1.0.0 hash: $HASH_ORGANIZER"
+          sed -i "s/PLACEHOLDER_HASH_ORGANIZER_1_0_0/$HASH_ORGANIZER/g" index.json
+
+          echo "Updated index.json with all hashes"
         
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
