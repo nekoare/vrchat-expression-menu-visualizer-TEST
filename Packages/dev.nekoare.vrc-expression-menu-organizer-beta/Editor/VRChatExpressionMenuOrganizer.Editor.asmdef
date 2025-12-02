@@ -1,0 +1,22 @@
+{
+    "name": "VRChatExpressionMenuOrganizer.Editor",
+    "rootNamespace": "VRCExpressionMenuOrganizer",
+    "references": [
+        "VRChatExpressionMenuOrganizer.Runtime",
+        "VRC.SDK3A",
+        "VRC.SDK3A.Editor",
+        "nadena.dev.modular-avatar.core",
+        "nadena.dev.modular-avatar.core.editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

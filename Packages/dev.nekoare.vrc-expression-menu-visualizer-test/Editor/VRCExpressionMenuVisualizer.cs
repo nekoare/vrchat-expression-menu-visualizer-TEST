@@ -130,7 +130,7 @@ namespace VRCExpressionMenuVisualizer
             return useEnglish ? english : japanese;
         }
         
-        [MenuItem("Tools/VRChat Expression Menu Visualizer")]
+        [MenuItem("メニュー整理ツール/安定版")]
         public static void ShowWindow()
         {
             GetWindow<VRCExpressionMenuVisualizerWindow>("Expression Menu Visualizer");
